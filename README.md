@@ -10,7 +10,9 @@ Most of the descriptive comments are in Russian. I don't want to change that, as
 
 The main task of this project was to integrate a custom server list into the game's server browser. This couldn't be done by simply changing the masterserver in the VDF file, but it became possible by patching the RevEmu, which was used in the builds that utilized this project. However, even this wasn't straightforward, as the emulator was protected by Themida. Fortunately, the protection configuration left much to be desired.
 
-I highly recommend checking out the file `Xander.RevFix.pas` if you're interested in my efforts to fix SteamID generation. The file contains a detailed explanation of how it works, although the language is still Russian.
+I highly recommend checking out the file `Source\Xander\Xander.RevFix.pas` if you're interested in my efforts to fix SteamID generation. The file contains a detailed explanation of how it works, although the language is still Russian.
+
+Also, the majority of important modifications for the steamclient library are located directly in the file `Source\Main\Protector.Emulator.pas`.
 
 # Main Features
 
