@@ -1,10 +1,10 @@
 (*========= (C) Copyright 2017-2018, Alexander B. All rights reserved. ========*)
 (*                                                                             *)
-(*  Имя модуля:                                                                *)
+(*  РРјСЏ РјРѕРґСѓР»СЏ:                                                                *)
 (*    Protector.Telemetry                                                      *)
 (*                                                                             *)
-(*  Назначение:                                                                *)
-(*    Сбор информации о системе, игре и исключающих ситуациях.                 *)
+(*  РќР°Р·РЅР°С‡РµРЅРёРµ:                                                                *)
+(*    РЎР±РѕСЂ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃРёСЃС‚РµРјРµ, РёРіСЂРµ Рё РёСЃРєР»СЋС‡Р°СЋС‰РёС… СЃРёС‚СѓР°С†РёСЏС….                 *)
 (*=============================================================================*)
 
 unit Protector.Telemetry;
@@ -62,17 +62,17 @@ type
     class function GetTotalRAM: UInt64; static;
     class function GetCPUName: string; static;
   private
-    (* class конструктор, вызывается при старте протектора. *)
+    (* class РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ, РІС‹Р·С‹РІР°РµС‚СЃСЏ РїСЂРё СЃС‚Р°СЂС‚Рµ РїСЂРѕС‚РµРєС‚РѕСЂР°. *)
     class constructor Create;
   public
     class property TotalRAM: UInt64 read FTotalRAM;
     class property UsedRAM: Integer read GetUsedRAM;
     class property CPUName: string read FCPUName;
 
-    (* Получить результат функции ToJSONObject в виде строки. *)
+    (* РџРѕР»СѓС‡РёС‚СЊ СЂРµР·СѓР»СЊС‚Р°С‚ С„СѓРЅРєС†РёРё ToJSONObject РІ РІРёРґРµ СЃС‚СЂРѕРєРё. *)
     class function ToJSON: string; static;
 
-    (* Собрать всю информацию о системе, игре и протекторе и вернуть в формате JSON. *)
+    (* РЎРѕР±СЂР°С‚СЊ РІСЃСЋ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ СЃРёСЃС‚РµРјРµ, РёРіСЂРµ Рё РїСЂРѕС‚РµРєС‚РѕСЂРµ Рё РІРµСЂРЅСѓС‚СЊ РІ С„РѕСЂРјР°С‚Рµ JSON. *)
     class function ToJSONObject: TJSONObject; static;
 
     class function GetWindowsInfo: string; static;

@@ -1,10 +1,10 @@
 (*=========== (C) Copyright 2017, Alexander B. All rights reserved. ===========*)
 (*                                                                             *)
-(*  Имя модуля:                                                                *)
+(*  РРјСЏ РјРѕРґСѓР»СЏ:                                                                *)
 (*   Protector.ServerBrowser.SortOrder                                         *)
 (*                                                                             *)
-(*  Описание:                                                                  *)
-(*    Данный модуль внедряет собственный способ сортировки в сервербраузер.    *)
+(*  РћРїРёСЃР°РЅРёРµ:                                                                  *)
+(*    Р”Р°РЅРЅС‹Р№ РјРѕРґСѓР»СЊ РІРЅРµРґСЂСЏРµС‚ СЃРѕР±СЃС‚РІРµРЅРЅС‹Р№ СЃРїРѕСЃРѕР± СЃРѕСЂС‚РёСЂРѕРІРєРё РІ СЃРµСЂРІРµСЂР±СЂР°СѓР·РµСЂ.    *)
 (*=============================================================================*)
 
 unit Protector.ServerBrowser.SortOrder;
@@ -177,8 +177,8 @@ type
 
   PVKeyValuesSystem = ^VKeyValuesSystem;
   VKeyValuesSystem = record
-    // KeyValuesSystem наследуется от IBaseInterface в 1.6,
-    // поэтому зде необходим виртуальный деструктор.
+    // KeyValuesSystem РЅР°СЃР»РµРґСѓРµС‚СЃСЏ РѕС‚ IBaseInterface РІ 1.6,
+    // РїРѕСЌС‚РѕРјСѓ Р·РґРµ РЅРµРѕР±С…РѕРґРёРј РІРёСЂС‚СѓР°Р»СЊРЅС‹Р№ РґРµСЃС‚СЂСѓРєС‚РѕСЂ.
     Destroy: procedure(Dispose: Boolean); stdcall;
 
     RegisterSizeofKeyValues: procedure(Size: Integer); stdcall;
@@ -186,9 +186,9 @@ type
     FreeKeyValuesMemory: procedure(Mem: Pointer); stdcall;
     GetSymbolForString: function(Name: PAnsiChar; Create: Boolean): HKeySymbol; stdcall;
 
-    // Функция не имеет кода в 1.6.
+    // Р¤СѓРЅРєС†РёСЏ РЅРµ РёРјРµРµС‚ РєРѕРґР° РІ 1.6.
     GetStringForSymbol: function(Symbol: HKeySymbol): PAnsiChar; stdcall;
-    // Функция не имеет кода в 1.6.
+    // Р¤СѓРЅРєС†РёСЏ РЅРµ РёРјРµРµС‚ РєРѕРґР° РІ 1.6.
     AddKeyValuesToMemoryLeakList: procedure(Mem: Pointer; Name: HKeySymbol); stdcall;
 
     RemoveKeyValuesFromMemoryLeakList: procedure(Mem: Pointer); stdcall;

@@ -27,7 +27,7 @@ const
 type
   TLocalMaster = class(TMiniUDP)
   private
-    // Список серверов. Сервера хранятся в таком виде, как они выглядят для пользователя (порт не htons)
+    // РЎРїРёСЃРѕРє СЃРµСЂРІРµСЂРѕРІ. РЎРµСЂРІРµСЂР° С…СЂР°РЅСЏС‚СЃСЏ РІ С‚Р°РєРѕРј РІРёРґРµ, РєР°Рє РѕРЅРё РІС‹РіР»СЏРґСЏС‚ РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ (РїРѕСЂС‚ РЅРµ htons)
     FServerList: TStringList;
     FIsMasterOnline: Boolean;
     FCheckingMaster: Boolean;

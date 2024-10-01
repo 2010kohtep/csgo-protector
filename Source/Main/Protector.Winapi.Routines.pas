@@ -35,7 +35,7 @@ function hksendto(S: TSocket; var Buf; Len, Flags: Integer; var AddrTo: TSockAdd
 //var
 //  Buffer: TBuffer;
 begin
-  if PAnsiChar(@Buf)^ = '1' then // Заголовок запроса списка серверов
+  if PAnsiChar(@Buf)^ = '1' then // Р—Р°РіРѕР»РѕРІРѕРє Р·Р°РїСЂРѕСЃР° СЃРїРёСЃРєР° СЃРµСЂРІРµСЂРѕРІ
   begin
 //  {$IFDEF DEBUG}
 //    TConsole.Write('Sending server list request for masterserver %s:%d',

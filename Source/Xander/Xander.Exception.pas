@@ -1,11 +1,11 @@
 (*========= (C) Copyright 2017-2019, Alexander B. All rights reserved. ========*)
 (*                                                                             *)
-(*  Имя модуля:                                                                *)
+(*  РРјСЏ РјРѕРґСѓР»СЏ:                                                                *)
 (*    Protector.Exception                                                      *)
 (*                                                                             *)
-(*  Назначение:                                                                *)
-(*    Обработка исключающих ситуаций игры с помощью векторных цепочек          *)
-(*    исключений.                                                              *)
+(*  РќР°Р·РЅР°С‡РµРЅРёРµ:                                                                *)
+(*    РћР±СЂР°Р±РѕС‚РєР° РёСЃРєР»СЋС‡Р°СЋС‰РёС… СЃРёС‚СѓР°С†РёР№ РёРіСЂС‹ СЃ РїРѕРјРѕС‰СЊСЋ РІРµРєС‚РѕСЂРЅС‹С… С†РµРїРѕС‡РµРє          *)
+(*    РёСЃРєР»СЋС‡РµРЅРёР№.                                                              *)
 (*=============================================================================*)
 
 unit Xander.Exception;
@@ -38,7 +38,7 @@ type
     class procedure CreateExceptionDump(const Data: TJSONObject); static;
     class function ConstructProtectorDumpFileName: string; static;
 
-    (* Преобразовывает информацию о исключении в JSON формат. *)
+    (* РџСЂРµРѕР±СЂР°Р·РѕРІС‹РІР°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РёСЃРєР»СЋС‡РµРЅРёРё РІ JSON С„РѕСЂРјР°С‚. *)
     class function DelphiExceptionToJSON(const E: Exception): TJSONObject; static;
     class function VectorExceptionToJSON(const E: TExceptionPointers): TJSONObject; static;
 
@@ -66,13 +66,13 @@ type
 const
   EXCEPTION_EXECUTE_HANDLER = 1;
 
-  // Выполняется следующий VEH-обработчик, если таковой имеется. Если
-  // обработчиков больше нет, разворачивается стек для поиска SEH-обработчиков.
+  // Р’С‹РїРѕР»РЅСЏРµС‚СЃСЏ СЃР»РµРґСѓСЋС‰РёР№ VEH-РѕР±СЂР°Р±РѕС‚С‡РёРє, РµСЃР»Рё С‚Р°РєРѕРІРѕР№ РёРјРµРµС‚СЃСЏ. Р•СЃР»Рё
+  // РѕР±СЂР°Р±РѕС‚С‡РёРєРѕРІ Р±РѕР»СЊС€Рµ РЅРµС‚, СЂР°Р·РІРѕСЂР°С‡РёРІР°РµС‚СЃСЏ СЃС‚РµРє РґР»СЏ РїРѕРёСЃРєР° SEH-РѕР±СЂР°Р±РѕС‚С‡РёРєРѕРІ.
   EXCEPTION_CONTINUE_SEARCH = 0;
 
-  // Обработчики далее не выполняются, обработка средствами SEH не производится,
-  // и управление передается в ту точку программы, в которой возникло исключение.
-  // Как и в случае SEH, это оказывается возможным не всегда
+  // РћР±СЂР°Р±РѕС‚С‡РёРєРё РґР°Р»РµРµ РЅРµ РІС‹РїРѕР»РЅСЏСЋС‚СЃСЏ, РѕР±СЂР°Р±РѕС‚РєР° СЃСЂРµРґСЃС‚РІР°РјРё SEH РЅРµ РїСЂРѕРёР·РІРѕРґРёС‚СЃСЏ,
+  // Рё СѓРїСЂР°РІР»РµРЅРёРµ РїРµСЂРµРґР°РµС‚СЃСЏ РІ С‚Сѓ С‚РѕС‡РєСѓ РїСЂРѕРіСЂР°РјРјС‹, РІ РєРѕС‚РѕСЂРѕР№ РІРѕР·РЅРёРєР»Рѕ РёСЃРєР»СЋС‡РµРЅРёРµ.
+  // РљР°Рє Рё РІ СЃР»СѓС‡Р°Рµ SEH, СЌС‚Рѕ РѕРєР°Р·С‹РІР°РµС‚СЃСЏ РІРѕР·РјРѕР¶РЅС‹Рј РЅРµ РІСЃРµРіРґР°
   EXCEPTION_CONTINUE_EXECUTION = -1;
 
 procedure CreateExceptionHandler;
@@ -101,14 +101,14 @@ const
     GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT or GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS;
 
 (*********************************************)
-(*                 Импорт                    *)
+(*                 РРјРїРѕСЂС‚                    *)
 (*********************************************)
 
 function RemoveVectoredExceptionHandler(Handler: Pointer): LongWord; stdcall; external 'kernel32.dll';
 function AddVectoredExceptionHandler(FirstHandler: Cardinal; const VectoredHandler: Pointer): Pointer; stdcall; external 'kernel32.dll';
 
 (*********************************************)
-(*                 События                   *)
+(*                 РЎРѕР±С‹С‚РёСЏ                   *)
 (*********************************************)
 
 var
@@ -149,7 +149,7 @@ begin
 end;
 
 (*********************************************)
-(*         Временное отключение VEH          *)
+(*         Р’СЂРµРјРµРЅРЅРѕРµ РѕС‚РєР»СЋС‡РµРЅРёРµ VEH          *)
 (*********************************************)
 
 var
@@ -166,7 +166,7 @@ begin
 end;
 
 (*********************************************)
-(*       Локальные функции-помощники         *)
+(*       Р›РѕРєР°Р»СЊРЅС‹Рµ С„СѓРЅРєС†РёРё-РїРѕРјРѕС‰РЅРёРєРё         *)
 (*********************************************)
 
 function IntToHex(Value: Integer): string; overload;
@@ -180,7 +180,7 @@ begin
 end;
 
 (*********************************************)
-(*              Реализация VEH               *)
+(*              Р РµР°Р»РёР·Р°С†РёСЏ VEH               *)
 (*********************************************)
 
 function VectorExceptionHandler(const ExceptionInfo: TExceptionPointers): Longint; stdcall;
@@ -203,7 +203,7 @@ begin
   TExceptionBuster.CriticalSection.Enter;
 
   try
-    (* Если исключение является "Access Violation", то выполнить его обработку. *)
+    (* Р•СЃР»Рё РёСЃРєР»СЋС‡РµРЅРёРµ СЏРІР»СЏРµС‚СЃСЏ "Access Violation", С‚Рѕ РІС‹РїРѕР»РЅРёС‚СЊ РµРіРѕ РѕР±СЂР°Р±РѕС‚РєСѓ. *)
     if ExceptionInfo.ExceptionRecord.ExceptionCode = EXCEPTION_ACCESS_VIOLATION then
     begin
       H := GetAddressBase(ExceptionInfo.ExceptionRecord.ExceptionAddress);
@@ -540,7 +540,7 @@ begin
         end;
       end;
 
-      (* Векторные исключения не генерируют текстовые сообщения. *)
+      (* Р’РµРєС‚РѕСЂРЅС‹Рµ РёСЃРєР»СЋС‡РµРЅРёСЏ РЅРµ РіРµРЅРµСЂРёСЂСѓСЋС‚ С‚РµРєСЃС‚РѕРІС‹Рµ СЃРѕРѕР±С‰РµРЅРёСЏ. *)
       AddPair('Message', 'nil');
     end;
   except
@@ -600,8 +600,8 @@ begin
   if ErrorText = '' then
     Exit;
 
-  (* Отобразить сообщение с собранным текстом. *)
-  MessageBox(HWND_DESKTOP, PChar(ErrorText), 'Ошибка', MB_ICONWARNING or MB_SYSTEMMODAL);
+  (* РћС‚РѕР±СЂР°Р·РёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ СЃ СЃРѕР±СЂР°РЅРЅС‹Рј С‚РµРєСЃС‚РѕРј. *)
+  MessageBox(HWND_DESKTOP, PChar(ErrorText), 'РћС€РёР±РєР°', MB_ICONWARNING or MB_SYSTEMMODAL);
 
   if CloseApp then
     ExitProcess(0);

@@ -13,7 +13,7 @@ procedure Hook_CDialogGameInfo_ServerFailedToRespond;
 
 implementation
 
-{$REGION 'Исправление вылета CDialogGameInfo::ServerResponded'}
+{$REGION 'РСЃРїСЂР°РІР»РµРЅРёРµ РІС‹Р»РµС‚Р° CDialogGameInfo::ServerResponded'}
 
 var
   orgCDialogGameInfo_ServerResponded: procedure(_EAX, _EDX: Integer; This: Pointer; Server: Pointer); register;
@@ -42,8 +42,8 @@ begin
   //WriteLn('CDialogGameInfo::ServerResponded called, [[ecx+48]] = ', IntToHex(Integer(Addr), 8));
 
   //
-  // Проверка половины адреса виртуальной таблицы this переменной. Если эта таблица
-  // не класса vgui2::ToggleButton, то выйти из функции.
+  // РџСЂРѕРІРµСЂРєР° РїРѕР»РѕРІРёРЅС‹ Р°РґСЂРµСЃР° РІРёСЂС‚СѓР°Р»СЊРЅРѕР№ С‚Р°Р±Р»РёС†С‹ this РїРµСЂРµРјРµРЅРЅРѕР№. Р•СЃР»Рё СЌС‚Р° С‚Р°Р±Р»РёС†Р°
+  // РЅРµ РєР»Р°СЃСЃР° vgui2::ToggleButton, С‚Рѕ РІС‹Р№С‚Рё РёР· С„СѓРЅРєС†РёРё.
   //
 
   Table := Cardinal(Addr) and $0000FF00;
@@ -81,7 +81,7 @@ end;
 
 {$ENDREGION}
 
-{$REGION 'Исправление вылета CDialogGameInfo::ServerFailedToRespond'}
+{$REGION 'РСЃРїСЂР°РІР»РµРЅРёРµ РІС‹Р»РµС‚Р° CDialogGameInfo::ServerFailedToRespond'}
 
 var
   orgCDialogGameInfo_ServerFailedToRespond: procedure(_EAX, _EDX: Integer; This: Pointer); register;

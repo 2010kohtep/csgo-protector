@@ -147,7 +147,7 @@ begin
   Exit(True);
 end;
 
-(* Функция, КОПИРУЮЩАЯ ресурс в новый участок памяти. *)
+(* Р¤СѓРЅРєС†РёСЏ, РљРћРџРР РЈР®Р©РђРЇ СЂРµСЃСѓСЂСЃ РІ РЅРѕРІС‹Р№ СѓС‡Р°СЃС‚РѕРє РїР°РјСЏС‚Рё. *)
 function CopyResource(const ResourceName: string; out Data: Pointer; out Size: Integer): Boolean;
 var
   Resource: Pointer;
@@ -161,7 +161,7 @@ begin
   Exit(True);
 end;
 
-(* Извлечь ресурс из текущего проекта, используя WinAPI. *)
+(* РР·РІР»РµС‡СЊ СЂРµСЃСѓСЂСЃ РёР· С‚РµРєСѓС‰РµРіРѕ РїСЂРѕРµРєС‚Р°, РёСЃРїРѕР»СЊР·СѓСЏ WinAPI. *)
 function ExtractResource(const ResourceName: string; const Name: string): Boolean;
 var
   Size: Integer;
